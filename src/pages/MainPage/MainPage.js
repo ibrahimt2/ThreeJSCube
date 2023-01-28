@@ -12,6 +12,7 @@ function MainPage() {
     return (
         <>
          <NavigationBar></NavigationBar>
+         <Container className="bg-secondary m-3 p-2 h-100 w-100" ></Container>
         </>);
 }
 
