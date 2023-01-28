@@ -1,5 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import NavigationBar from '../../components/NavigationBar';
+import ScenePane from '../../components/ScenePane/ScenePane'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 
 
@@ -11,8 +14,9 @@ import NavigationBar from '../../components/NavigationBar';
 function MainPage() {
     return (
         <>
-         <NavigationBar></NavigationBar>
-         <Container className="bg-secondary m-3 p-2 h-100 w-100" ></Container>
+            <NavigationBar></NavigationBar>
+            <ScenePane></ScenePane>
+
         </>);
 }
 
