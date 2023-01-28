@@ -13,11 +13,11 @@ import Row from 'react-bootstrap/Row'
 
 function MainPage() {
     return (
-        <>
+        <div>
             <NavigationBar></NavigationBar>
             <ScenePane></ScenePane>
 
-        </>);
+        </div>);
 }
 
 export default MainPage
