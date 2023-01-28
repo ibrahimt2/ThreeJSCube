@@ -2,6 +2,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
+
+/**
+ * Creates a basic Navbar 
+ * @returns 
+ */
+
 function NavigationBar() {
     return (
         <>
@@ -17,3 +23,5 @@ function NavigationBar() {
             </Navbar>
         </>);
 }
+
+export default NavigationBar
