@@ -11,6 +11,8 @@ function ScenePane() {
     return (
         <Container className="scene-container mt-4">
             <Canvas>
+                <ambientLight intensity={0.1} />
+                <spotLight position={[9, 16, 10]} angle={0.2} />
                 <Stars></Stars>
                 <OrbitControls></OrbitControls>
                 <RenderedCube></RenderedCube>
