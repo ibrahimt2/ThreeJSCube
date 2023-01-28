@@ -1,7 +1,14 @@
 
-/** Renders a scene given the required parameters */
+import { PropTypes } from "prop-types";
+/** Renders a scene given the required parameters
+ * 
+ * Props.
+ * positionArr - 
+ */
 
-function RenderedCube() {
+
+
+function RenderedCube({positionArr, rotationArr}) {
     return(
         <mesh>
             <boxBufferGeometry attach="geometry"></boxBufferGeometry>
@@ -9,5 +16,19 @@ function RenderedCube() {
         </mesh>
     )
 }
+
+
+
+RenderedCube.propTypes = {
+    /** positionArr is an array containing [X, Y, Z] coordinates for position of RenderedCube, in degrees  */
+    positionArr: PropTypes.arrayOf(PropTypes.number).isRequired,
+    /**rotationArr is an array containing [X, Y, Z] amounts for rotation of RenderedCube, in degrees  */
+    rotationArr: PropTypes.arrayOf(PropTypes.number).isRequired,
+  };
+  
+  RenderedCube.defaultProps = {
+    positionArr: [0, 0, 0],
+    rotationArr: [0, 0, 0],
+  };
 
 export default RenderedCube
