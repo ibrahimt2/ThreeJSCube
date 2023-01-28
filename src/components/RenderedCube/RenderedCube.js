@@ -10,7 +10,7 @@ import { PropTypes } from "prop-types";
 
 function RenderedCube({positionArr, rotationArr}) {
     return(
-        <mesh>
+        <mesh position={positionArr} rotation={rotationArr.map(deg => deg * (Math.PI / 180))}>
             <boxBufferGeometry attach="geometry"></boxBufferGeometry>
             <meshLambertMaterial attach="material" color="blue"></meshLambertMaterial>
         </mesh>
