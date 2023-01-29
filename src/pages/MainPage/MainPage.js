@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import NavigationBar from '../../components/NavigationBar';
+import NavigationBar from '../../components/NavigationBar/NavigationBar.js';
 import ScenePane from '../../panes/ScenePane/ScenePane'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
