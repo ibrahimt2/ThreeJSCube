@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import NavigationBar from '../../components/NavigationBar';
-import ScenePane from '../../components/ScenePane/ScenePane'
+import ScenePane from '../../panes/ScenePane/ScenePane'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
