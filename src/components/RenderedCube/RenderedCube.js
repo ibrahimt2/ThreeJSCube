@@ -1,9 +1,7 @@
 
 import { PropTypes } from "prop-types";
-/** Renders a scene given the required parameters
- * 
- * Props.
- * positionArr - 
+
+/** Renders a cube in a given position with a given rotation
  */
 
 
@@ -20,8 +18,10 @@ function RenderedCube({positionArr, rotationArr}) {
 
 
 RenderedCube.propTypes = {
+
     /** positionArr is an array containing [X, Y, Z] coordinates for position of RenderedCube, in degrees  */
     positionArr: PropTypes.arrayOf(PropTypes.number).isRequired,
+
     /**rotationArr is an array containing [X, Y, Z] amounts for rotation of RenderedCube, in degrees  */
     rotationArr: PropTypes.arrayOf(PropTypes.number).isRequired,
   };
