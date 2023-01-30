@@ -12,7 +12,7 @@ function CommandAdd({cubeMachineState, send}) {
         <Form>
             <Row>
                 <Col xs={6} sm={6} md={6} lg={6} xl={6} xxl={6}>
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label>Command</Form.Label>
                     <Typeahead
                     id="basic-typeahead-single"
                     onChange={(e) => {
