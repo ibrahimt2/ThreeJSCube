@@ -7,7 +7,7 @@ function CommandAdd({cubeMachineState, send}) {
     return(
         <Form>
             <Row>
-                <Col>
+                <Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4}>
                     <Form.Label>Name</Form.Label>
                     <Form.Control placeholder="Name"
                     value={cubeMachineState.context.formName}
