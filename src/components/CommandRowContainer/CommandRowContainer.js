@@ -2,6 +2,17 @@ import React from "react"
 import Table from 'react-bootstrap/Table'
 import CommandRow from '../CommandRow/CommandRow.js'
 
+/** CommandRowContainer.
+ * 
+ *  Takes a list of commands and creates rows for each of them. Displays table with passed in commands
+ * 
+ *  Renders: CommandRow
+ * 
+ *  Rendered By: Command Pane
+ * @param {*} param0 
+ * @returns 
+ */
+
 function CommandRowContainer ({commandArray}) {
 
 
