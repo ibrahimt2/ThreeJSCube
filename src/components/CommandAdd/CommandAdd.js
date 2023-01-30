@@ -46,7 +46,7 @@ function CommandAdd({cubeMachineState, send}) {
                         <Button
                             className="btnFormSend float-down btn-flat"
                             variant="primary"
-                            onClick={}
+                            // onClick={onSubmit}
                         >
                             +
                         </Button>
