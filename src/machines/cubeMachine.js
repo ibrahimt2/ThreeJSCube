@@ -13,17 +13,24 @@ createMachine({
           actions: "assignInputToContext"
         },
 
-        "Add Command": [{
+        "Add Command": {
           target: "BuildCommandList",
           internal: true,
-          cond: "validCommand",
+          // cond: "validCommand",
           actions: "addCommandToCommandList"
-        }, {
-          target: "BuildCommandList",
-          internal: true,
-          cond: "erroredCommand",
-          actions: "assignErrorToContext"
-        }],
+        },
+
+        // "Add Command": [{
+        //   target: "BuildCommandList",
+        //   internal: true,
+        //   cond: "validCommand",
+        //   actions: "addCommandToCommandList"
+        // }, {
+        //   target: "BuildCommandList",
+        //   internal: true,
+        //   cond: "erroredCommand",
+        //   actions: "assignErrorToContext"
+        // }],
 
         ProcessListCommands: "Command Processing"
       }
@@ -73,8 +80,19 @@ createMachine({
         };
       }
       
+    }),
+
+    addCommandToCommandList: assign((context, event) => {
+
+      let newCommandArray = context.commands
+      newCommandArray.push({name: context.formName, x: context.formX, y: context.formY, z: context.formZ})
+
+      return {
+        commands: newCommandArray
+      }
     })
   },
+  
 
 
 })
