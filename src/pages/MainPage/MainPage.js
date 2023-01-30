@@ -4,6 +4,8 @@ import ScenePane from '../../panes/ScenePane/ScenePane'
 import CommandPane from '../../panes/CommandPane/CommandPane.js'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import cubeMachine from '../../machines/cubeMachine.js'
+import { useMachine } from '@xstate/react'
 
 
 
@@ -13,12 +15,15 @@ import Row from 'react-bootstrap/Row'
  */
 
 function MainPage() {
+
+    const [cubeMachineState, send] = useMachine(cubeMachine)
+
     return (
         <div>
             <NavigationBar></NavigationBar>
             <ScenePane></ScenePane>
-            <CommandPane></CommandPane>
-
+            {JSON.stringify(cubeMachineState.context.formName)}
+            <CommandPane cubeMachineState={cubeMachineState} send={send}></CommandPane>
         </div>);
 }
 

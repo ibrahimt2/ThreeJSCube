@@ -1,8 +1,8 @@
-import {createMachine} from "xstate";
+import {assign, createMachine} from "xstate";
 
 
 const cubeMachine = 
-/** @xstate-layout N4IgpgJg5mDOIC5QEsB0AhArsgNhAwgPYC2xAhgHYQAyysALgMQBihATsQATIUAOm9TgGMAFpRgQA2gAYAuolC9CsZPWSEKCkAA9EAWgCM0gOyoATNICcx41dsBWAGzSALC4A0IAJ76XAZjNUAz8XSz9pM0sI4wMzAF84zzQsXAIScipaBkYABTZCIThYLPoiUkoIWBl5JBAlFTUNLV0EQ2tUAJDje2MXMxDpA08fVrMze1QXAA4p6ymDe3sXQZcEpIxsPDKMmjomAEEICE5tiuqtetV1TVqWswXUGe7HR3srS0dI42HfPtQVqbGRxTd73V5rEDJTZpcqZPaMQ7HU5USQGGqKZRXJq3RAGYyBaR+EEg+xmYEuV5+H6tewhSaOClmKZkxxGUIQtDI455ApFHhQRgQDRgVA8ABuhAA1iLOekKpweYVYCoKFAEOKCmRGhRqudapdtc1EGZbP9nA4AlETTZqYYYqhgT0Aq57JYXAY+glEiAKIQIHAtMgLpjDTjRi4Jp0XN1ev1lkNvPpPgZUB8KdIluNQkyORtUlySsGGtcjQh2tHAcYpvYpm5Xo5LLbwo5HiZpgYjCa3FNc1yFfklSqoEWsTdQC1HKZLJYpuF+n5jH4ltZbdPUD0xg2Yr0XiavXEgA */
+/** @xstate-layout N4IgpgJg5mDOIC5QGMCuAjMBZAhsgFgJYB2YAdAEKqEA2EAwgPYC2zOxEAMobAC4DEAMUYAnZgAISAB1S9xBdjAgBtAAwBdRKCmNYhXoUbEtIAB6IAtAEYArAGYyATgBMADlcB2Ox4+OPANisAFjsAGhAAT0Rgp2dVfxtnKzsgr39HGxsAXyzwtExcAhJyKloGFjYObj5+AEEICHEmVnYVDRMdPQMjE3MEa2cPMg9k1RtXGxCrWwzwqIQ3KzJA30dVVytVVMTs3JB87DwiUkpqOmbKrh4BesaL1uUrTSQQTv1DYxe+q39-MjtVOtnEF7OsbI5PHNokFYvFBq5-CDVHYkh4cnkMIciidSucKq1qgIAAoiRjIOCwQn3DiwNTPbS6d49L6IOxWIa-QEQybeDwhKEIXlkSbI9b+FJBIKqZzo-aYwrHcjUxokskUkhQfgQIzkEgAN0YAGtyAcFcUyMrxKrybA9MQoAh9WScN1iHS6R1Ga7etEtssIc5xTYrK5vIMwpFEEEfmRgs47JMNls2XZ-Dk9sRGBA4CZTUdip6uh8ff04ksXO4vD4-IF+ZH+h5nMLfHYMn4AnZvEFZXnsSUzuUWlVroWmZ9QH1rEFXGQxnYESjJVLfDYBVYksLXGt-Mjw64gr8e-L8ydLdb1fbR96Wf0JmRJRD-PHAfPnG4BcGm8GUXOETYfHY6ZZEAA */
 createMachine({
   states: {
     BuildCommandList: {
@@ -39,8 +39,24 @@ createMachine({
     rotation: [0, 0, 0],
     commands: [],
     error: null,
+    formName: 'test'
   },
 
   initial: "BuildCommandList",
-  id: "i"
+  id: "cubeMachine"
+
+
+}, {
+  actions: {
+    assignInputToContext: assign((context, event) => {
+      console.log('lol')
+      return {
+        formName: event.value
+      };
+    })
+  },
+
+
 })
+
+export default cubeMachine
