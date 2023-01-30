@@ -4,7 +4,7 @@ import React from 'react'
 function CommandPane() {
     return (
         <React.Fragment>
-            <CommandRowContainer></CommandRowContainer>
+            <CommandRowContainer commandArray={[{name: '10', x: 10, y:2, z:4}]}></CommandRowContainer>
         </React.Fragment>
     )
 }

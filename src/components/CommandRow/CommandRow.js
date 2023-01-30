@@ -8,3 +8,5 @@ function CommandRow ({command}) {
         </tr>
     )
 }
+
+export default CommandRow

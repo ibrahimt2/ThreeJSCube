@@ -1,5 +1,6 @@
 import React from "react"
 import Table from 'react-bootstrap/Table'
+import CommandRow from '../CommandRow/CommandRow.js'
 
 function CommandRowContainer ({commandArray}) {
 
