@@ -27,7 +27,10 @@ createMachine({
     "Command Processing": {
       invoke: {
         src: "processCommands",
-        onDone: "BuildCommandList"
+        onDone: {
+          actions: "assignCommandProcessingResultsToContext",
+          target: "BuildCommandList"
+        }
       }
     }
   },
@@ -73,10 +76,18 @@ createMachine({
     addCommandToCommandList: assign((context, event) => {
 
       let newCommandArray = context.commands
-      newCommandArray.push({name: context.formName, x: context.formX, y: context.formY, z: context.formZ})
+      newCommandArray.push({name: context.formName, x: parseInt(context.formX), y: parseInt(context.formY), z: parseInt(context.formZ)})
 
       return {
         commands: newCommandArray
+      }
+    }),
+
+    assignCommandProcessingResultsToContext: assign((context, event) => {
+      return {
+        position: event.data[0],
+        rotation: event.data[1],
+        commands: []
       }
     })
   },
