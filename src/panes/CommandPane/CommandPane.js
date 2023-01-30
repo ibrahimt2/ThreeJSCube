@@ -6,7 +6,7 @@ function CommandPane({cubeMachineState, send}) {
     return (
         <React.Fragment>
             <CommandAdd send={send} cubeMachineState={cubeMachineState}></CommandAdd>
-            <CommandRowContainer commandArray={[{name: '10', x: 10, y:2, z:4}]}></CommandRowContainer>
+            <CommandRowContainer commandArray={cubeMachineState.context.commands}></CommandRowContainer>
         </React.Fragment>
     )
 }
