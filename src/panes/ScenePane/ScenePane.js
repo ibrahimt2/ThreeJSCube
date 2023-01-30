@@ -5,7 +5,13 @@ import Container from "react-bootstrap/esm/Container.js"
 import './ScenePane.css'
 
 
-/** Renders a scene given the required parameters */
+/** ScenePane.
+ * 
+ *  Renders a scene given the required parameters 
+ * 
+ *  Renders: RenderedCube
+ *  Rendered by: MainPage
+*/
 
 function ScenePane() {
     return (

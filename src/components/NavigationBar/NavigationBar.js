@@ -5,7 +5,8 @@ import Navbar from 'react-bootstrap/Navbar';
 
 /**
  * Creates a basic Navbar 
- * @returns 
+ * 
+ * Rendered By: MainPage
  */
 
 function NavigationBar() {

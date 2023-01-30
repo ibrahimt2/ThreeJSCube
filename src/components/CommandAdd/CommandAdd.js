@@ -4,6 +4,15 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { Typeahead } from 'react-bootstrap-typeahead';
 
+/** CommandAdd.
+ * 
+ *  Handles input fields for adding new commands in commandList. 
+ *  Sends events to to cubeStateMachine to add new commands
+ * 
+ *  Rendered By: CommandPane
+ * 
+ */
+
 function CommandAdd({cubeMachineState, send}) {
 
     let availableCommands = ['MOVE TO', 'MOVE BY', 'ROTATE TO', 'ROTATE BY']

@@ -9,9 +9,10 @@ import { useMachine } from '@xstate/react'
 
 
 
-/**
- * Renders Main Landing Page of application.
- * @returns 
+/** MainPage.
+ *  Display Main Landing Page of application.
+ * 
+ *  Renders: NavigationBar, ScenePane, CommandPane 
  */
 
 function MainPage() {
