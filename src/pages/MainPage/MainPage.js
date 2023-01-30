@@ -47,7 +47,7 @@ function MainPage() {
     return (
         <div>
             <NavigationBar></NavigationBar>
-            <ScenePane></ScenePane>
+            <ScenePane position={cubeMachineState.context.position} rotation={cubeMachineState.context.rotation}></ScenePane>
             {JSON.stringify(cubeMachineState.context)}
             <CommandPane cubeMachineState={cubeMachineState} send={send}></CommandPane>
         </div>);

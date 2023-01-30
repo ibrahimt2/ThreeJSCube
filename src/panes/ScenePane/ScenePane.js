@@ -13,7 +13,7 @@ import './ScenePane.css'
  *  Rendered by: MainPage
 */
 
-function ScenePane() {
+function ScenePane({position, rotation}) {
     return (
         <Container className="scene-container mt-4">
             <Canvas>
@@ -21,7 +21,7 @@ function ScenePane() {
                 <spotLight position={[9, 16, 10]} angle={0.2} />
                 <Stars></Stars>
                 <OrbitControls></OrbitControls>
-                <RenderedCube></RenderedCube>
+                <RenderedCube position={position} rotation={rotation}></RenderedCube>
             </Canvas>
         </Container>
     )
