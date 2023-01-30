@@ -1,7 +1,11 @@
 
 import { PropTypes } from "prop-types";
 
-/** Renders a cube in a given position with a given rotation
+/** RenderedCube. 
+ * 
+ * Renders a cube in a given position with a given rotation
+ * 
+ * Rendered by: ScenePane
  */
 
 
