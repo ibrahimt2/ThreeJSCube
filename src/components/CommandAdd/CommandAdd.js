@@ -31,7 +31,7 @@ function CommandAdd({cubeMachineState, send}) {
                         send("Form input changed", {value: e.target.value, valueType: 'y'});
                     }}></Form.Control>
                 </Col>
-                <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+                <Col xs={1} sm={1} md={1} lg={1} xl={1} xxl={1}>
                     <Form.Label>Z</Form.Label>
                     <Form.Control placeholder="Name"
                     value={cubeMachineState.context.formZ}
@@ -39,6 +39,17 @@ function CommandAdd({cubeMachineState, send}) {
                         send("Form input changed", {value: e.target.value, valueType: 'z'});
                     }}></Form.Control>
                 </Col>
+                <Col xs={1} sm={1} md={1} lg={1} xl={1} xxl={1}>
+                        <Row><Form.Label>Add</Form.Label></Row>
+
+                        <Button
+                            className="btnFormSend float-down btn-flat"
+                            variant="primary"
+                            onClick={onSubmit}
+                        >
+                            +
+                        </Button>
+                    </Col>
             </Row>
         </Form>
     )
