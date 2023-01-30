@@ -1,5 +1,6 @@
 import CommandRowContainer from '../../components/CommandRowContainer/CommandRowContainer.js'
 import CommandAdd from '../../components/CommandAdd/CommandAdd.js'
+import Button from 'react-bootstrap/esm/Button.js'
 import React from 'react'
 
 function CommandPane({cubeMachineState, send}) {
@@ -7,6 +8,8 @@ function CommandPane({cubeMachineState, send}) {
         <React.Fragment>
             <CommandAdd send={send} cubeMachineState={cubeMachineState}></CommandAdd>
             <CommandRowContainer commandArray={cubeMachineState.context.commands}></CommandRowContainer>
+            <Button>Process Instructions</Button>
+            <Button>Clear </Button>
         </React.Fragment>
     )
 }
