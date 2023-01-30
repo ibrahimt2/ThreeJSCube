@@ -12,31 +12,31 @@ function CommandAdd({cubeMachineState, send}) {
                     <Form.Control placeholder="Name"
                     value={cubeMachineState.context.formName}
                     onChange={(e) => {
-                        send("Form input changed", {value: e.target.value});
+                        send("Form input changed", {value: e.target.value, valueType: 'name'});
                     }}></Form.Control>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
                     <Form.Label>X</Form.Label>
                     <Form.Control placeholder="Name"
-                    value={cubeMachineState.context.formName}
+                    value={cubeMachineState.context.formX}
                     onChange={(e) => {
-                        send("Form input changed", {value: e.target.value});
+                        send("Form input changed", {value: e.target.value, valueType: 'x'});
                     }}></Form.Control>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
                     <Form.Label>Y</Form.Label>
                     <Form.Control placeholder="Name"
-                    value={cubeMachineState.context.formName}
+                    value={cubeMachineState.context.formY}
                     onChange={(e) => {
-                        send("Form input changed", {value: e.target.value});
+                        send("Form input changed", {value: e.target.value, valueType: 'y'});
                     }}></Form.Control>
                 </Col>
                 <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
                     <Form.Label>Z</Form.Label>
                     <Form.Control placeholder="Name"
-                    value={cubeMachineState.context.formName}
+                    value={cubeMachineState.context.formZ}
                     onChange={(e) => {
-                        send("Form input changed", {value: e.target.value});
+                        send("Form input changed", {value: e.target.value, valueType: 'z'});
                     }}></Form.Control>
                 </Col>
             </Row>

@@ -2,7 +2,7 @@ import {assign, createMachine} from "xstate";
 
 
 const cubeMachine = 
-/** @xstate-layout N4IgpgJg5mDOIC5QGMCuAjMBZAhsgFgJYB2YAdAEKqEA2EAwgPYC2zOxEAMobAC4DEAMUYAnZgAISAB1S9xBdjAgBtAAwBdRKCmNYhXoUbEtIAB6IAtAEYArAGYyATgBMADlcB2Ox4+OPANisAFjsAGhAAT0Rgp2dVfxtnKzsgr39HGxsAXyzwtExcAhJyKloGFjYObj5+AEEICHEmVnYVDRMdPQMjE3MEa2cPMg9k1RtXGxCrWwzwqIQ3KzJA30dVVytVVMTs3JB87DwiUkpqOmbKrh4BesaL1uUrTSQQTv1DYxe+q39-MjtVOtnEF7OsbI5PHNokFYvFBq5-CDVHYkh4cnkMIciidSucKq1qgIAAoiRjIOCwQn3DiwNTPbS6d49L6IOxWIa-QEQybeDwhKEIXlkSbI9b+FJBIKqZzo-aYwrHcjUxokskUkhQfgQIzkEgAN0YAGtyAcFcUyMrxKrybA9MQoAh9WScN1iHS6R1Ga7etEtssIc5xTYrK5vIMwpFEEEfmRgs47JMNls2XZ-Dk9sRGBA4CZTUdip6uh8ff04ksXO4vD4-IF+ZH+h5nMLfHYMn4AnZvEFZXnsSUzuUWlVroWmZ9QH1rEFXGQxnYESjJVLfDYBVYksLXGt-Mjw64gr8e-L8ydLdb1fbR96Wf0JmRJRD-PHAfPnG4BcGm8GUXOETYfHY6ZZEAA */
+/** @xstate-layout N4IgpgJg5mDOIC5QGMCuAjMBZAhsgFgJYB2YAdAEKqEA2EAwgPYC2zOxEAMobAC4DEAMUYAnZgAISAB1S9xBdjAgBtAAwBdRKCmNYhXoUbEtIAB6IAtAEYArAGYyATgBMADlcB2Ox4+OPANisAFjsAGhAAT0Rgp2dVfxtnKzsgr39HGxsAXyzwtExcAhJyKloGFjYObj5+AEEICHEmVnYVDRMdPQMjE3MEa2cPMg9k1RtXGxCrWwzwqIQ3KzJA30dVVytVVMTs3JB87DwiUkpqOmbKrh4BesaL1uUrTSQQTv1DYxe+q39-MjtVOtnEF7OsbI5PHNokFYvFBq5-CDVHYkh4cnkMIciidSucKq1qgIAAoiRjIOCwQn3DiwNTPbS6d49L6IOxWIa-QEQybeDwhKEIXlkSbI9b+FJBIKqZzo-aYwrHcjUxokskUkhQfgQIzkEgAN0YAGtyAcFcUyMrxKrybA9MQoAh9WScN1iHS6R1Ga7etEtssIc5xTYrK5vIMwpFEEEfmRgs47JMNls2XZ-Dk9sRGBA4CZTUdip6uh8ff04ksXO4vD4-IF+ZH+h5nMLfLzXI41ojEbK89iSmdyi0qtdC0zPqA+tYgq4yGM7AiUZKpb4bAKrElhW34sjw64gr9u-L8ydLdb1faR96Wf0JmRJRD-PHAXPnG4BcGm8GUbOETYfHZ01kQA */
 createMachine({
   states: {
     BuildCommandList: {
@@ -12,6 +12,7 @@ createMachine({
           internal: true,
           actions: "assignInputToContext"
         },
+
         "Add Command": [{
           target: "BuildCommandList",
           internal: true,
@@ -23,6 +24,7 @@ createMachine({
           cond: "erroredCommand",
           actions: "assignErrorToContext"
         }],
+
         ProcessListCommands: "Command Processing"
       }
     },
@@ -39,7 +41,10 @@ createMachine({
     rotation: [0, 0, 0],
     commands: [],
     error: null,
-    formName: 'test'
+    formName: '',
+    formX: '',
+    formY: '',
+    formZ: '',
   },
 
   initial: "BuildCommandList",
@@ -49,10 +54,25 @@ createMachine({
 }, {
   actions: {
     assignInputToContext: assign((context, event) => {
-      console.log('lol')
-      return {
-        formName: event.value
-      };
+      
+      if (event.valueType == 'name') {
+        return {
+          formName: event.value
+        };
+      } else if(event.valueType == 'x') {
+        return {
+          formX: event.value
+        };
+      } else if(event.valueType == 'y') {
+        return {
+          formY: event.value
+        };
+      } else if(event.valueType == 'z') {
+        return {
+          formZ: event.value
+        };
+      }
+      
     })
   },
 

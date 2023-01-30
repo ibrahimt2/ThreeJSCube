@@ -22,7 +22,7 @@ function MainPage() {
         <div>
             <NavigationBar></NavigationBar>
             <ScenePane></ScenePane>
-            {JSON.stringify(cubeMachineState.context.formName)}
+            {JSON.stringify(cubeMachineState.context)}
             <CommandPane cubeMachineState={cubeMachineState} send={send}></CommandPane>
         </div>);
 }
