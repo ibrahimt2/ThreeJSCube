@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { HemisphereLight } from "three"
 import * as THREE from 'three'
+import Line from '../../components/Line/Line.js'
 
 
 /** ScenePane.
@@ -18,48 +19,15 @@ import * as THREE from 'three'
 */
 
 function ScenePane({ position, rotation }) {
-
-    const points = []
-    points.push(new THREE.Vector3(-1000, 0, 0))
-    points.push(new THREE.Vector3(1000, 0, 0))
-
-    const points2 = []
-    points2.push(new THREE.Vector3(0, -1000, 0))
-    points2.push(new THREE.Vector3(0, 1000, 0))
-
-    const points3 = []
-    points3.push(new THREE.Vector3(0, 0, -1000))
-    points3.push(new THREE.Vector3(0, 0, 1000))
-
-
-    const lineGeometry = new THREE.BufferGeometry().setFromPoints(points)
-    const lineGeometry2 = new THREE.BufferGeometry().setFromPoints(points2)
-    const lineGeometry3 = new THREE.BufferGeometry().setFromPoints(points3)
-
-
-
     return (
         <div className='shadow p-3 m-5 mx-5 bg-white rounded'>
             <h1>Cube Viewer</h1>
             <Container className="scene-container mt-4 shadow">
                 <Canvas>
-                    <group position={[0, 0, 0]}>
-                        <line geometry={lineGeometry}>
-                            <lineBasicMaterial attach="material" color={'red'} linewidth={30} linecap={'round'} linejoin={'round'} />
-                        </line>
-                    </group>
-                    <group position={[0, 0, 0]}>
-                        <line geometry={lineGeometry2}>
-                            <lineBasicMaterial attach="material" color={'green'} linewidth={30} linecap={'round'} linejoin={'round'} />
-                        </line>
-                    </group>
-                    <group position={[0, 0, 0]}>
-                        <line geometry={lineGeometry3}>
-                            <lineBasicMaterial attach="material" color={'blue'} linewidth={30} linecap={'round'} linejoin={'round'} />
-                        </line>
-                    </group>
+                    <Line start={[-1000, 0, 0]} end={[1000, 0, 0]} color={'red'}></Line>
+                    <Line start={[0, -1000, 0]} end={[0, 1000, 0]} color={'green'}></Line>
+                    <Line start={[0, 0, -1000]} end={[0, 0, 1000]} color={'blue'}></Line>
                     <ambientLight intensity={0.1} />
-                    {/* <HemisphereLight></HemisphereLight> */}
                     <spotLight position={[9, 16, 10]} />
                     <Stars></Stars>
                     <OrbitControls></OrbitControls>
