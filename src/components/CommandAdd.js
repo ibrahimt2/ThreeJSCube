@@ -20,8 +20,8 @@ function CommandAdd({ cubeMachineState, send }) {
         <div className='bg-light p-3 my-2 rounded'>
             <Form>
                 <Row>
-                    <Col xs={5} sm={5} md={5} lg={5} xl={5} xxl={5}>
-                        <Form.Label>Command</Form.Label>
+                    <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+                        <Form.Label><small>COMMAND</small></Form.Label>
                         <Typeahead
                             id="basic-typeahead-single"
                             onChange={(e) => {
@@ -33,7 +33,7 @@ function CommandAdd({ cubeMachineState, send }) {
                         </Typeahead>
                     </Col>
                     <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
-                        <Form.Label>X</Form.Label>
+                        <Form.Label><small>X</small></Form.Label>
                         <Form.Control placeholder="Name"
                             value={cubeMachineState.context.formX}
                             onChange={(e) => {
@@ -41,7 +41,7 @@ function CommandAdd({ cubeMachineState, send }) {
                             }}></Form.Control>
                     </Col>
                     <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
-                        <Form.Label>Y</Form.Label>
+                        <Form.Label><small>Y</small></Form.Label>
                         <Form.Control placeholder="Name"
                             value={cubeMachineState.context.formY}
                             onChange={(e) => {
@@ -49,18 +49,18 @@ function CommandAdd({ cubeMachineState, send }) {
                             }}></Form.Control>
                     </Col>
                     <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
-                        <Form.Label>Z</Form.Label>
+                        <Form.Label><small>Z</small></Form.Label>
                         <Form.Control placeholder="Name"
                             value={cubeMachineState.context.formZ}
                             onChange={(e) => {
                                 send("Form input changed", { value: e.target.value, valueType: 'z' });
                             }}></Form.Control>
                     </Col>
-                    <Col xs={1} sm={1} md={1} lg={1} xl={1} xxl={1}>
-                        <Row><Form.Label>Add</Form.Label></Row>
+                    <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+                        <Row><Form.Label><small>ADD COMMAND</small></Form.Label></Row>
                         <Button
-                            className="btnFormSend float-down btn-flat"
-                            variant="primary"
+                            className="text-light w-100"
+                            variant="info"
                             onClick={(e) => {
                                 send("Add Command")
                             }}
@@ -68,8 +68,22 @@ function CommandAdd({ cubeMachineState, send }) {
                             +
                         </Button>
                     </Col>
+                    <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+                        <Row><Form.Label><small>QUICK EXECUTE</small></Form.Label></Row>
+                        <Button
+                            className="text-light w-100"
+                            variant="info"
+                            onClick={(e) => {
+                                send("Clear")
+                                send("Add Command")
+                                send("Process list commands")
+                            }}
+                        >
+                          &gt;
+                        </Button>
+                    </Col>
                 </Row>
-                <div class="text-danger self-align-start m-2"><small>{cubeMachineState.context.error}</small></div> 
+                <div class="text-danger my-2"><small>{cubeMachineState.context.error}</small></div> 
             </Form>
         </div>
     )
