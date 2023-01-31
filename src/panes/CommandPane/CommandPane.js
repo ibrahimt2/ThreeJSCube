@@ -39,7 +39,10 @@ function CommandPane({ cubeMachineState, send }) {
                         send("Process list commands")
                     }}>Process Instructions</Button></Col>
                 <Col>
-                    <Button className='w-100'>Clear </Button>
+                    <Button className='w-100'
+                     onClick={(e) => {
+                        send("Clear command list")
+                    }}>Clear </Button>
                 </Col>
             </Row>
 
