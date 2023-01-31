@@ -19,7 +19,7 @@ function CommandPane({ cubeMachineState, send }) {
     return (
         <div className='shadow p-3 m-2 mx-5 bg-white rounded'>
             <Row>
-                <Col><h1>Command Manager <OverlayTrigger
+                <Col><h1>Command Manager<OverlayTrigger
                     key={'right'}
                     placement={'right'}
                     overlay={

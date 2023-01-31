@@ -14,48 +14,49 @@ import { availableCommands } from '../../utils/constant';
  * 
  */
 
-function CommandAdd({cubeMachineState, send}) {
+function CommandAdd({ cubeMachineState, send }) {
 
-    return(
-        <Form>
-            <Row>
-                <Col xs={6} sm={6} md={6} lg={6} xl={6} xxl={6}>
-                    <Form.Label>Command</Form.Label>
-                    <Typeahead
-                    id="basic-typeahead-single"
-                    onChange={(e) => {
-                        send("Form input changed", {value: e, valueType: 'name'});
-                    }}
-                    options={availableCommands}
-                    placeholder='Select Command'
-                    selected={cubeMachineState.context.formName}>
-                    </Typeahead>
-                </Col>
-                <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
-                    <Form.Label>X</Form.Label>
-                    <Form.Control placeholder="Name"
-                    value={cubeMachineState.context.formX}
-                    onChange={(e) => {
-                        send("Form input changed", {value: e.target.value, valueType: 'x'});
-                    }}></Form.Control>
-                </Col>
-                <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
-                    <Form.Label>Y</Form.Label>
-                    <Form.Control placeholder="Name"
-                    value={cubeMachineState.context.formY}
-                    onChange={(e) => {
-                        send("Form input changed", {value: e.target.value, valueType: 'y'});
-                    }}></Form.Control>
-                </Col>
-                <Col xs={1} sm={1} md={1} lg={1} xl={1} xxl={1}>
-                    <Form.Label>Z</Form.Label>
-                    <Form.Control placeholder="Name"
-                    value={cubeMachineState.context.formZ}
-                    onChange={(e) => {
-                        send("Form input changed", {value: e.target.value, valueType: 'z'});
-                    }}></Form.Control>
-                </Col>
-                <Col xs={1} sm={1} md={1} lg={1} xl={1} xxl={1}>
+    return (
+        <div className='bg-light p-3 my-2 rounded'>
+            <Form>
+                <Row>
+                    <Col xs={5} sm={5} md={5} lg={5} xl={5} xxl={5}>
+                        <Form.Label>Command</Form.Label>
+                        <Typeahead
+                            id="basic-typeahead-single"
+                            onChange={(e) => {
+                                send("Form input changed", { value: e, valueType: 'name' });
+                            }}
+                            options={availableCommands}
+                            placeholder='Select Command'
+                            selected={cubeMachineState.context.formName}>
+                        </Typeahead>
+                    </Col>
+                    <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+                        <Form.Label>X</Form.Label>
+                        <Form.Control placeholder="Name"
+                            value={cubeMachineState.context.formX}
+                            onChange={(e) => {
+                                send("Form input changed", { value: e.target.value, valueType: 'x' });
+                            }}></Form.Control>
+                    </Col>
+                    <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+                        <Form.Label>Y</Form.Label>
+                        <Form.Control placeholder="Name"
+                            value={cubeMachineState.context.formY}
+                            onChange={(e) => {
+                                send("Form input changed", { value: e.target.value, valueType: 'y' });
+                            }}></Form.Control>
+                    </Col>
+                    <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+                        <Form.Label>Z</Form.Label>
+                        <Form.Control placeholder="Name"
+                            value={cubeMachineState.context.formZ}
+                            onChange={(e) => {
+                                send("Form input changed", { value: e.target.value, valueType: 'z' });
+                            }}></Form.Control>
+                    </Col>
+                    <Col xs={1} sm={1} md={1} lg={1} xl={1} xxl={1}>
                         <Row><Form.Label>Add</Form.Label></Row>
 
                         <Button
@@ -68,8 +69,9 @@ function CommandAdd({cubeMachineState, send}) {
                             +
                         </Button>
                     </Col>
-            </Row>
-        </Form>
+                </Row>
+            </Form>
+        </div>
     )
 }
 
