@@ -24,6 +24,13 @@ function CommandPane({ cubeMachineState, send }) {
                     placement={'right'}
                     overlay={
                         <Tooltip id={`tooltip-${'right'}`}>
+                            <b>MOVE TO: </b>Move the cube to the given co-ordinates
+                            <br></br><br></br>
+                            <b>MOVE BY: </b>Change the cube's position by the given amount
+                            <br></br><br></br>
+                            <b>ROTATE TO: </b>Set the cube's rotation to the given numbers, specified in degrees
+                            <br></br><br></br>
+                            <b>ROTATE BY: </b>Change the cube's rotation by the given amount, specified in degrees
                         </Tooltip>
                     }
                 >
@@ -40,9 +47,9 @@ function CommandPane({ cubeMachineState, send }) {
                     }}>Process Instructions</Button></Col>
                 <Col>
                     <Button className='w-100'
-                     onClick={(e) => {
-                        send("Clear command list")
-                    }}>Clear </Button>
+                        onClick={(e) => {
+                            send("Clear command list")
+                        }}>Clear </Button>
                 </Col>
             </Row>
 
