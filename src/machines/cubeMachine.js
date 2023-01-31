@@ -72,6 +72,7 @@ const cubeMachine =
     },
     actions: {
 
+      /** Sets error message depending on current context */
       setErrorMessage: assign((context) => {
         if (context.formName == false) {
           return { error: 'Please select a command to add' }

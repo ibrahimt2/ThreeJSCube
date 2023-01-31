@@ -4,13 +4,10 @@ import CommandRow from './CommandRow.js'
 
 /** CommandRowContainer.
  * 
- *  Takes a list of commands and creates rows for each of them. Displays table with passed in commands
+ *  Takes a list of command objects and creates rows for each of them. Displays table with passed in commands
  * 
  *  Renders: CommandRow
- * 
  *  Rendered By: Command Pane
- * @param {*} param0 
- * @returns 
  */
 
 function CommandRowContainer ({commandArray}) {
@@ -28,6 +25,7 @@ function CommandRowContainer ({commandArray}) {
                     </tr>
                 </thead>
                 <tbody>
+
                     {Object.values(commandArray).map((elem) => (<CommandRow command={elem}></CommandRow>))}
                 </tbody>
             </Table>
