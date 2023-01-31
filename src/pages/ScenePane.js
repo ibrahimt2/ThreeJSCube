@@ -1,4 +1,4 @@
-import RenderedCube from "../../components/RenderedCube/RenderedCube.js"
+import RenderedCube from "../components/RenderedCube.js"
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Stars, Line } from '@react-three/drei'
 import Container from "react-bootstrap/esm/Container.js"

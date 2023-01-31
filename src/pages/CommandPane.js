@@ -1,8 +1,8 @@
-import CommandRowContainer from '../../components/CommandRowContainer/CommandRowContainer.js'
-import CommandAdd from '../../components/CommandAdd/CommandAdd.js'
+import CommandRowContainer from '../components/CommandRowContainer.js'
+import CommandAdd from '../components/CommandAdd.js'
 import Button from 'react-bootstrap/esm/Button.js'
 import React from 'react'
-import information from '../../images/information.svg'
+import information from '../images/information.svg'
 import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
 
 
