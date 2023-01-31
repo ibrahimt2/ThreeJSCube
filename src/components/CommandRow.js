@@ -1,6 +1,6 @@
 /** CommandRow.
  * 
- *  Takes in a command, displays a row for given command. 
+ *  Takes in a command object, displays a row for given command. 
  * 
  *  Rendered By: CommandRowContainer
  * 

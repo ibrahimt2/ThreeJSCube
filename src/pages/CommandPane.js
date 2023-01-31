@@ -9,9 +9,12 @@ import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
 /**
  *  CommandPane.
  *  
- *  Displays all UI elements that have to do with managing Command List. 
+ *  Displays heading and tooltip containing tutorial on how to use Command Manager Pane
+ *  Creates 'Process Instructions' button that executes commands currently in list
+ *  Creates 'Clear' button that removes all commands currently in list
  *  
  *  Renders: CommandAdd, CommandRowContainer
+ *  Rendered By: MainPage
  * 
  */
 
@@ -19,6 +22,8 @@ function CommandPane({ cubeMachineState, send }) {
     return (
         <div className='shadow p-3 m-2 mx-5 bg-white rounded'>
             <Row>
+
+                {/* Displays heading and tooltip */}
                 <Col><h1>Command Manager<OverlayTrigger
                     key={'right'}
                     placement={'right'}
@@ -49,7 +54,7 @@ function CommandPane({ cubeMachineState, send }) {
                     }}><small>PROCESS INSTRUCTIONS</small></Button></Col>
                 <Col>
                     <Button variant="info"
-                    className='w-100 text-light'
+                        className='w-100 text-light'
                         onClick={(e) => {
                             send("Clear command list")
                         }}><small>CLEAR</small> </Button>
