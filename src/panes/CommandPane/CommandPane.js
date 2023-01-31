@@ -14,7 +14,7 @@ import React from 'react'
 
 function CommandPane({ cubeMachineState, send }) {
     return (
-        <React.Fragment>
+        <div className='shadow p-3 m-2 mx-5 bg-white rounded'>
             <CommandAdd send={send} cubeMachineState={cubeMachineState}></CommandAdd>
             <CommandRowContainer commandArray={cubeMachineState.context.commands}></CommandRowContainer>
             <Button variant="primary"
@@ -22,7 +22,7 @@ function CommandPane({ cubeMachineState, send }) {
                     send("Process list commands")
                 }}>Process Instructions</Button>
             <Button >Clear </Button>
-        </React.Fragment>
+        </div>
     )
 }
 
