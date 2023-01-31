@@ -2,6 +2,9 @@ import CommandRowContainer from '../../components/CommandRowContainer/CommandRow
 import CommandAdd from '../../components/CommandAdd/CommandAdd.js'
 import Button from 'react-bootstrap/esm/Button.js'
 import React from 'react'
+import information from '../../images/information.svg'
+import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
+
 
 /**
  *  CommandPane.
@@ -15,6 +18,20 @@ import React from 'react'
 function CommandPane({ cubeMachineState, send }) {
     return (
         <div className='shadow p-3 m-2 mx-5 bg-white rounded'>
+            <Row>
+                <Col><h1>Command Manager</h1 ></Col>
+                <Col><OverlayTrigger
+                    key={'top'}
+                    placement={'top'}
+                    overlay={
+                        <Tooltip id={`tooltip-${'top'}`}>
+                        </Tooltip>
+                    }
+                >
+                    <Button variant=""><img src={information} alt="React Logo" width='20em' height='20em'/></Button>
+                </OverlayTrigger>
+                </Col>
+            </Row>
             <CommandAdd send={send} cubeMachineState={cubeMachineState}></CommandAdd>
             <CommandRowContainer commandArray={cubeMachineState.context.commands}></CommandRowContainer>
             <Button variant="primary"
