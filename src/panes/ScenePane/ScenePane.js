@@ -27,7 +27,7 @@ function ScenePane({ position, rotation }) {
                     <RenderedCube position={position} rotation={rotation}></RenderedCube>
                 </Canvas>
             </Container>
-            <Row className="bg-light p-3 mx-5 mt-4 rounded">
+            <Row className="bg-light p-3 mx-1 mt-4 rounded">
                 <Col>
                     <Row><h5>Current Position</h5></Row>
                     <Row><p>{position.toString()}</p></Row>

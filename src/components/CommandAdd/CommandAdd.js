@@ -58,7 +58,6 @@ function CommandAdd({ cubeMachineState, send }) {
                     </Col>
                     <Col xs={1} sm={1} md={1} lg={1} xl={1} xxl={1}>
                         <Row><Form.Label>Add</Form.Label></Row>
-
                         <Button
                             className="btnFormSend float-down btn-flat"
                             variant="primary"
