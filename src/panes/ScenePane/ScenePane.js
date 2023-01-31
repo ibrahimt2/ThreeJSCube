@@ -1,13 +1,13 @@
 import RenderedCube from "../../components/RenderedCube/RenderedCube.js"
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars } from '@react-three/drei'
+import { OrbitControls, Stars, Line } from '@react-three/drei'
 import Container from "react-bootstrap/esm/Container.js"
 import './ScenePane.css'
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 import { HemisphereLight } from "three"
 import * as THREE from 'three'
-import Line from '../../components/Line/Line.js'
+
 
 
 /** ScenePane.
@@ -24,9 +24,9 @@ function ScenePane({ position, rotation }) {
             <h1>Cube Viewer</h1>
             <Container className="scene-container mt-4 shadow">
                 <Canvas>
-                    <Line start={[-1000, 0, 0]} end={[1000, 0, 0]} color={'red'}></Line>
-                    <Line start={[0, -1000, 0]} end={[0, 1000, 0]} color={'green'}></Line>
-                    <Line start={[0, 0, -1000]} end={[0, 0, 1000]} color={'blue'}></Line>
+                   <Line points={[[-1000, 0, 0], [1000, 0, 0]]} color='red' lineWidth={1} ></Line>
+                   <Line points={[[0, -1000, 0], [0, 1000, 0]]} color='blue' lineWidth={1} ></Line>
+                   <Line points={[[0, 0, -1000], [0, 0, 1000]]} color='green' lineWidth={1} ></Line>
                     <ambientLight intensity={0.1} />
                     <spotLight position={[9, 16, 10]} />
                     <Stars></Stars>
