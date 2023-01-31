@@ -69,6 +69,7 @@ function CommandAdd({ cubeMachineState, send }) {
                         </Button>
                     </Col>
                 </Row>
+                <div class="text-danger self-align-start m-2"><small>{cubeMachineState.context.error}</small></div> 
             </Form>
         </div>
     )
