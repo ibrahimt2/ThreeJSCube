@@ -19,18 +19,17 @@ function CommandPane({ cubeMachineState, send }) {
     return (
         <div className='shadow p-3 m-2 mx-5 bg-white rounded'>
             <Row>
-                <Col><h1>Command Manager</h1 ></Col>
-                <Col><OverlayTrigger
-                    key={'top'}
-                    placement={'top'}
+                <Col><h1>Command Manager <OverlayTrigger
+                    key={'right'}
+                    placement={'right'}
                     overlay={
-                        <Tooltip id={`tooltip-${'top'}`}>
+                        <Tooltip id={`tooltip-${'right'}`}>
                         </Tooltip>
                     }
                 >
                     <Button variant=""><img src={information} alt="React Logo" width='20em' height='20em'/></Button>
-                </OverlayTrigger>
-                </Col>
+                </OverlayTrigger></h1 ></Col>
+               
             </Row>
             <CommandAdd send={send} cubeMachineState={cubeMachineState}></CommandAdd>
             <CommandRowContainer commandArray={cubeMachineState.context.commands}></CommandRowContainer>
