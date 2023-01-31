@@ -43,15 +43,16 @@ function CommandPane({ cubeMachineState, send }) {
             <CommandAdd send={send} cubeMachineState={cubeMachineState}></CommandAdd>
             <CommandRowContainer commandArray={cubeMachineState.context.commands}></CommandRowContainer>
             <Row>
-                <Col> <Button className='w-100' variant="primary"
+                <Col> <Button className='w-100 text-light' variant="info"
                     onClick={(e) => {
                         send("Process list commands")
-                    }}>Process Instructions</Button></Col>
+                    }}><small>PROCESS INSTRUCTIONS</small></Button></Col>
                 <Col>
-                    <Button className='w-100'
+                    <Button variant="info"
+                    className='w-100 text-light'
                         onClick={(e) => {
                             send("Clear command list")
-                        }}>Clear </Button>
+                        }}><small>CLEAR</small> </Button>
                 </Col>
             </Row>
 
