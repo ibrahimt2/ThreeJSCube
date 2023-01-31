@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from 'react-bootstrap/Button'
-import MainPage from '../src/pages/MainPage/MainPage'
+import MainPage from './pages/MainPage.js'
 
 function App() {
   return (

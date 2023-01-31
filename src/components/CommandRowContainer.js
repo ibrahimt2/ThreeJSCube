@@ -1,6 +1,6 @@
 import React from "react"
 import Table from 'react-bootstrap/Table'
-import CommandRow from '../CommandRow/CommandRow.js'
+import CommandRow from './CommandRow.js'
 
 /** CommandRowContainer.
  * 
@@ -17,7 +17,7 @@ function CommandRowContainer ({commandArray}) {
 
 
     return (
-        <React.Fragment>
+        <div className='bg-light p-3 my-4 rounded'>
             <Table bordered hover size="sm" responsive="sm">
                 <thead>
                     <tr>
@@ -31,7 +31,7 @@ function CommandRowContainer ({commandArray}) {
                     {Object.values(commandArray).map((elem) => (<CommandRow command={elem}></CommandRow>))}
                 </tbody>
             </Table>
-        </React.Fragment>
+        </div>
     )
 }
 
