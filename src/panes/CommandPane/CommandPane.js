@@ -24,6 +24,8 @@ function CommandPane({ cubeMachineState, send }) {
                     placement={'right'}
                     overlay={
                         <Tooltip id={`tooltip-${'right'}`}>
+                            Use this pane to send instructions to the cube. First, use the + button to add commands to the command list. Then, press the 'Process Instructions' command to execute the commands. They will be executed in the sequence they were entered.
+                            <br></br><br></br>
                             <b>MOVE TO: </b>Move the cube to the given co-ordinates
                             <br></br><br></br>
                             <b>MOVE BY: </b>Change the cube's position by the given amount
