@@ -27,17 +27,23 @@ function CommandPane({ cubeMachineState, send }) {
                         </Tooltip>
                     }
                 >
-                    <Button variant=""><img src={information} alt="React Logo" width='20em' height='20em'/></Button>
+                    <Button variant=""><img src={information} alt="React Logo" width='20em' height='20em' /></Button>
                 </OverlayTrigger></h1 ></Col>
-               
+
             </Row>
             <CommandAdd send={send} cubeMachineState={cubeMachineState}></CommandAdd>
             <CommandRowContainer commandArray={cubeMachineState.context.commands}></CommandRowContainer>
-            <Button variant="primary"
-                onClick={(e) => {
-                    send("Process list commands")
-                }}>Process Instructions</Button>
-            <Button >Clear </Button>
+            <Row>
+                <Col> <Button className='w-100' variant="primary"
+                    onClick={(e) => {
+                        send("Process list commands")
+                    }}>Process Instructions</Button></Col>
+                <Col>
+                    <Button className='w-100'>Clear </Button>
+                </Col>
+            </Row>
+
+
         </div>
     )
 }
