@@ -2,7 +2,7 @@ import {assign, createMachine} from "xstate";
 
 
 const cubeMachine = 
-/** @xstate-layout N4IgpgJg5mDOIC5QGMCuAjMBZAhsgFgJYB2YAdAEKqEA2EAwgPYC2zOxEAMobAC4DEAMUYAnZgAISAB1S9xBdjAgBtAAwBdRKCmNYhXoUbEtIAB6IAtAEYArAGYyATgBMADlcB2Ox4+OPANisAFjsAGhAAT0Rgp2dVfxtnKzsgr39HGxsAXyzwtExcAhJyKloGFjYObj5+AEEICHEmVnYVDRMdPQMjE3MEa2cPMg9k1RtXGxCrWwzwqIQ3KzJA30dVVytVVMTs3JB87DwiUkpqOmbKrh4BesaL1uUrTSQQTv1DYxe+q39-MjtVOtnEF7OsbI5PHNokFYvFBq5-CDVHYkh4cnkMIciidSucKq1qgIAAoiRjIOCwQn3DiwNTPbS6d49L6IOxWIa-QEQybeDwhKEIXlkSbI9b+FJBIKqZzo-aYwrHcjUxokskUkhQfgQIzkEgAN0YAGtyAcFcUyMrxKrybA9MQoAh9WScN1iHS6R1Ga7etEtssIc5xTYrK5vIMwpFEEEfmRgs47JMNls2XZ-Dk9sRGBA4CZTUdip6uh8ff04ksXO4vD4-IF+ZH+h5nMLfLzXI41ojEbK89iSmdyi0qtdC0zPqA+tYgq4yGM7AiUZKpb4bAKrElhW34sjw64gr9u-L8ydLdb1faR96Wf0JmRJRD-PHAXPnG4BcGm8GUbOETYfHZ01kQA */
+/** @xstate-layout N4IgpgJg5mDOIC5QGMCuAjMBZAhsgFgJYB2YAdAEKqEA2EAwgPYC2zOxEAMobAC4DEAMUYAnZgAISAB1S9xBdjAgBtAAwBdRKCmNYhXoUbEtIAB6IAtAEYArAGYyATgBMADlcB2Ox4+OPANisAFjsAGhAAT0Rgp2dVfxtnKzsgr39HGxsAXyzwtExcAhJyKloGFjYObj5+AEEICHEmVnYVDRMdPQMjE3MEa2cPMg9k1RtXGxCrWwzwqIQ3KzJA30dVVytVVMTs3JB87DwiUkpqOmbKrh4BAAURRmQ4WHEaa-kK1tg1TSQQTv1DMZfn07FYhv5-KpVI4JiEfCE5ohvENJqo7Ot-CkgkFVM4cnkMIciicLq1xHcHk8SFB+BAjOQSAA3RgAa3IB0Kx3IpI45Puj1gemIUAQTIeOG6xG+3w6ugBPWB0S2yxhzkxNisrm8gzCkUQQSs-jIwWcdkmGy2oLs-hye2IjAgcBMHKOxVlXUBvUscSWLncXh8fkCCL1-Q8zjINl8ZsmmzRIzxexdxJKZ3KLSq13d8qBoD6FlcRrsjkchomWqCKw8iIQhqGFrBmX9UMcNqThM5xTIPMaFIFQqg2clXv6EzI2Jh-lNULsrmcbhrGojGrscXshajXltWSAA */
 createMachine({
   states: {
     BuildCommandList: {
@@ -20,26 +20,17 @@ createMachine({
           actions: "addCommandToCommandList"
         },
 
-        // "Add Command": [{
-        //   target: "BuildCommandList",
-        //   internal: true,
-        //   cond: "validCommand",
-        //   actions: "addCommandToCommandList"
-        // }, {
-        //   target: "BuildCommandList",
-        //   internal: true,
-        //   cond: "erroredCommand",
-        //   actions: "assignErrorToContext"
-        // }],
-
-        ProcessListCommands: "Command Processing"
+        "Process list commands": "Command Processing"
       }
     },
 
     "Command Processing": {
       invoke: {
         src: "processCommands",
-        onDone: "BuildCommandList"
+        onDone: {
+          actions: "assignCommandProcessingResultsToContext",
+          target: "BuildCommandList"
+        }
       }
     }
   },
@@ -85,10 +76,18 @@ createMachine({
     addCommandToCommandList: assign((context, event) => {
 
       let newCommandArray = context.commands
-      newCommandArray.push({name: context.formName, x: context.formX, y: context.formY, z: context.formZ})
+      newCommandArray.push({name: context.formName, x: parseInt(context.formX), y: parseInt(context.formY), z: parseInt(context.formZ)})
 
       return {
         commands: newCommandArray
+      }
+    }),
+
+    assignCommandProcessingResultsToContext: assign((context, event) => {
+      return {
+        position: event.data[0],
+        rotation: event.data[1],
+        commands: []
       }
     })
   },

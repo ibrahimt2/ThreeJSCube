@@ -21,10 +21,10 @@ function CommandRowContainer ({commandArray}) {
             <Table bordered hover size="sm" responsive="sm">
                 <thead>
                     <tr>
-                        <th>Command</th>
-                        <th>X</th>
-                        <th>Y</th>
-                        <th>Z</th>
+                        <th xs={6} sm={6} md={6} lg={6} xl={6} xxl={6}>Command</th>
+                        <th xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>X</th>
+                        <th xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>Y</th>
+                        <th xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>Z</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -12,13 +12,16 @@ import React from 'react'
  * 
  */
 
-function CommandPane({cubeMachineState, send}) {
+function CommandPane({ cubeMachineState, send }) {
     return (
         <React.Fragment>
             <CommandAdd send={send} cubeMachineState={cubeMachineState}></CommandAdd>
             <CommandRowContainer commandArray={cubeMachineState.context.commands}></CommandRowContainer>
-            <Button>Process Instructions</Button>
-            <Button>Clear </Button>
+            <Button variant="primary"
+                onClick={(e) => {
+                    send("Process list commands")
+                }}>Process Instructions</Button>
+            <Button >Clear </Button>
         </React.Fragment>
     )
 }
