@@ -1,6 +1,5 @@
 import { assign, createMachine } from "xstate";
 
-
 const cubeMachine =
   /** @xstate-layout N4IgpgJg5mDOIC5QGMCuAjMBZAhsgFgJYB2YAdAEKqEA2EAwgPYC2zOxEAMobAC4DEAMUYAnZgAISAB1S9xBdjAgBtAAwBdRKCmNYhXoUbEtIAB6IAtAEYArDbJWAHACYAbK5sBmV6oDsAFn8bABoQAE9EVzJfLxtnT19VR0crK39vAF8M0LRMXAIScipaBhY2Dm4+fgBBCAhxJlZ2FQ0THT0DIxNzBAtPdLIbK1U-JJt-VVcATmdQiIRnKyik1Lsp3ynHSccsnIxsPCJSSmo6RvKuHgEABRFGZDhYcRor+TLm2DVNJBB2-UNjD8ep4rL4yO4RptxgkAp45ogYYMJp4kq5+oFVM5diBcgcCsdimd3hUrvx6DQwDgRG8mhxnlcvm1dP8ukDEKkrNFfM5Eo5EqC0tN4Qt7I5PM5nDZXP4eaorJs0tjcfkjuRzs1xLd7o8SFB+BAjOQSAA3RgAa3IysOhTI6rpWoesD0xCgCBN9xwnWIX0ZPz+Xu6lmGYJsMyszkcQxlU3FjmFnhmZBRXmcYZsI0c-iV+xVNsJpVplyqtXqdpUVm+2mZAbZvX6nkGw1GkYm01m4QR6cG-VTM18aRGvlcWWyIGIjAgcBMVvxYCZHQBgbrU05Q0HY1bM2FFi20X80uScv8yWlVmzeWtBNOBYulV485ZgNAPR3UQTK9ckbF+9BvmFSzBFI5RiGxkkSVQpmHUcZ1VW1iXqB0dRdB8a2fSxIzIQJNlceIRk8FwI2FIZnEbcVVC8RwPF8XxPBHDIgA */
   createMachine({
@@ -60,6 +59,32 @@ const cubeMachine =
 
 
   }, {
+
+    services: {
+      "processCommands": async (context) => {
+
+        let positionResult = context.position
+        let rotationResult = context.rotation
+        let commandArray = context.commands
+      
+        while (commandArray.length != 0) {
+            let command = commandArray.shift()
+      
+            if (command.name == 'MOVE TO') {
+                positionResult = [command.x, command.y, command.z]
+            } else if (command.name == 'ROTATE TO') {
+                rotationResult = [command.x, command.y, command.z]
+            } else if (command.name == 'MOVE BY') {
+                positionResult = [positionResult[0] + command.x, positionResult[1] + command.y, positionResult[2] + command.z]
+            } else if (command.name == 'ROTATE BY') {
+                rotationResult = [rotationResult[0] + command.x, rotationResult[1] + command.y, rotationResult[2] + command.z]
+            }
+        }
+      
+        return [positionResult, rotationResult]
+      }
+
+    },
 
     guards: {
       "validCommand": (context, event) => {
