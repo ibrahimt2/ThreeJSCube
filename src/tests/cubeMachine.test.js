@@ -90,7 +90,54 @@ describe('cubeMachine', () => {
 
     it('should transition to Command Processing state on "Process list commands" event', () => {
         service.send('Process list commands');
-    
+
         expect(service.state.value).toBe('Command Processing');
-      });
+    });
+
+    it('should add command to command list on "Add Command" event with valid input', () => {
+
+        service.send("Form input changed", { value: 'MOVE TO', valueType: 'name' })
+        service.send("Form input changed", { value: '10', valueType: 'x' })
+        service.send("Form input changed", { value: '20', valueType: 'y' })
+        service.send("Form input changed", { value: '30', valueType: 'z' })
+        service.send('Add Command');
+
+        expect(service.state.context).toEqual({
+            position: [0, 0, 0],
+            rotation: [0, 0, 0],
+            commands: [{ name: 'MOVE TO', x: 10, y: 20, z: 30 }],
+            error: null,
+            formName: 'MOVE TO',
+            formX: '10',
+            formY: '20',
+            formZ: '30',
+        });
+    });
+
+    it('should correctly set the cube position using the MOVE TO command', async() => {
+
+        service.send("Form input changed", { value: 'MOVE TO', valueType: 'name'})
+        service.send("Form input changed", { value: '10', valueType: 'x' })
+        service.send("Form input changed", { value: '20', valueType: 'y' })
+        service.send("Form input changed", { value: '30', valueType: 'z' })
+        service.send('Add Command');
+        // await waitUntilState(service, state => state.value == 'BuildCommandList')
+        await service.send('Process list commands');
+        
+        // await waitUntilState(service, state => state.value == 'Command Processing')
+        // await waitUntilState(service, state => state.value == 'BuildCommandList')
+
+
+        
+        expect(service.state.context).toEqual({
+            position: [10, 20, 30],
+            rotation: [0, 0, 0],
+            commands: [],
+            error: null,
+            formName: 'MOVE TO',
+            formX: '10',
+            formY: '20',
+            formZ: '30',
+        });
+    });
 })
