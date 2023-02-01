@@ -70,13 +70,13 @@ const cubeMachine =
         while (commandArray.length != 0) {
             let command = commandArray.shift()
       
-            if (command.name == 'MOVE TO') {
+            if (command.name === 'MOVE TO') {
                 positionResult = [command.x, command.y, command.z]
-            } else if (command.name == 'ROTATE TO') {
+            } else if (command.name === 'ROTATE TO') {
                 rotationResult = [command.x, command.y, command.z]
-            } else if (command.name == 'MOVE BY') {
+            } else if (command.name === 'MOVE BY') {
                 positionResult = [positionResult[0] + command.x, positionResult[1] + command.y, positionResult[2] + command.z]
-            } else if (command.name == 'ROTATE BY') {
+            } else if (command.name === 'ROTATE BY') {
                 rotationResult = [rotationResult[0] + command.x, rotationResult[1] + command.y, rotationResult[2] + command.z]
             }
         }
@@ -88,7 +88,7 @@ const cubeMachine =
 
     guards: {
       "validCommand": (context, event) => {
-        if (context.formName == false || context.formX == '' || context.formY == '' || context.formZ == '' || isNaN(context.formX) || isNaN(context.formY) || isNaN(context.formZ)) {
+        if (context.formName === false || context.formX === '' || context.formY === '' || context.formZ === '' || isNaN(context.formX) || isNaN(context.formY) || isNaN(context.formZ)) {
           return false
         } else {
           return true
@@ -99,9 +99,9 @@ const cubeMachine =
 
       /** Sets error message depending on current context */
       setErrorMessage: assign((context) => {
-        if (context.formName == false) {
+        if (context.formName === false) {
           return { error: 'Please select a command to add' }
-        } else if (context.formX == '' || context.formY == '' || context.formZ == '') {
+        } else if (context.formX === '' || context.formY === '' || context.formZ === '') {
           return { error: 'Please provide numeric inputs for X, Y and Z fields' }
         } else if (isNaN(context.formX) || isNaN(context.formY) || isNaN(context.formZ)) {
           return { error: 'Please provide numeric inputs for X, Y and Z fields' }
@@ -110,19 +110,19 @@ const cubeMachine =
 
       /** Assign values in input text fields to context */
       assignInputToContext: assign((context, event) => {
-        if (event.valueType == 'name') {
+        if (event.valueType === 'name') {
           return {
             formName: event.value
           };
-        } else if (event.valueType == 'x') {
+        } else if (event.valueType === 'x') {
           return {
             formX: event.value
           };
-        } else if (event.valueType == 'y') {
+        } else if (event.valueType === 'y') {
           return {
             formY: event.value
           };
-        } else if (event.valueType == 'z') {
+        } else if (event.valueType === 'z') {
           return {
             formZ: event.value
           };

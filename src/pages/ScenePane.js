@@ -1,12 +1,11 @@
 import RenderedCube from "../components/RenderedCube.js"
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars, Line, Sky, Sparkles } from '@react-three/drei'
+import { OrbitControls, Stars, Line, Sky } from '@react-three/drei'
 import Container from "react-bootstrap/esm/Container.js"
 import './ScenePane.css'
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
-import { HemisphereLight } from "three"
-import * as THREE from 'three'
+
 
 
 
