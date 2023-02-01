@@ -97,6 +97,7 @@ const cubeMachine =
     },
     actions: {
 
+      /** Sets error message depending on current context */
       setErrorMessage: assign((context) => {
         if (context.formName == false) {
           return { error: 'Please select a command to add' }
@@ -107,6 +108,7 @@ const cubeMachine =
         }
       }),
 
+      /** Assign values in input text fields to context */
       assignInputToContext: assign((context, event) => {
         if (event.valueType == 'name') {
           return {
@@ -128,7 +130,7 @@ const cubeMachine =
 
       }),
 
-
+      /** Create a command from current form values and add it to context.commands */
       addCommandToCommandList: assign((context, event) => {
 
         let newCommandArray = context.commands
@@ -140,6 +142,7 @@ const cubeMachine =
         }
       }),
 
+      /** Assign command processing results to context.position and context.rotation */
       assignCommandProcessingResultsToContext: assign((context, event) => {
         return {
           position: event.data[0],
@@ -147,6 +150,8 @@ const cubeMachine =
           commands: [],
         }
       }),
+
+      /** Clear the commands array */
       clearCommands: assign(() => {
         return {
           commands: []
