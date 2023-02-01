@@ -134,7 +134,7 @@ const cubeMachine =
       addCommandToCommandList: assign((context, event) => {
 
         let newCommandArray = context.commands
-        newCommandArray.push({ name: context.formName, x: parseInt(context.formX), y: parseInt(context.formY), z: parseInt(context.formZ) })
+        newCommandArray.push({ name: context.formName, x: parseFloat(context.formX), y: parseFloat(context.formY), z: parseFloat(context.formZ) })
 
         return {
           commands: newCommandArray,
