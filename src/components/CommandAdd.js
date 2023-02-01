@@ -26,15 +26,15 @@ function CommandAdd({ cubeMachineState, send }) {
                     <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
                         {/* Command selection dropdown */}
                         <Form.Label><small>COMMAND</small></Form.Label>
-                        <Typeahead
-                            id="basic-typeahead-single"
-                            onChange={(e) => {
-                                send("Form input changed", { value: e, valueType: 'name' });
-                            }}
-                            options={availableCommands}
-                            placeholder='Select Command'
-                            selected={cubeMachineState.context.formName}>
-                        </Typeahead>
+                        <Form.Select aria-label="Select Command" onChange={(e) => {
+                            send("Form input changed", { value: e.target.value, valueType: 'name' });
+                        }}>
+                            <option value="" selected disabled hidden>Select a command</option>
+                            <option value="MOVE TO">MOVE TO</option>
+                            <option value="MOVE BY">MOVE BY</option>
+                            <option value="ROTATE TO">ROTATE TO</option>
+                            <option value="ROTATE BY">ROTATE BY</option>
+                        </Form.Select>
                     </Col>
                     <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
                         {/* X text field */}
@@ -83,7 +83,7 @@ function CommandAdd({ cubeMachineState, send }) {
                             className="text-light w-100"
                             variant="info"
                             onClick={(e) => {
-                                send("Clear")
+                                send("Clear command list")
                                 send("Add Command")
                                 send("Process list commands")
                             }}
