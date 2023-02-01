@@ -14,7 +14,7 @@ function RenderedCube({position, rotation}) {
     return(
         <mesh position={position} rotation={rotation.map(deg => deg * (Math.PI / 180))}>
             <boxBufferGeometry attach="geometry"></boxBufferGeometry>
-            <meshPhongMaterial attach="material" color="blue"></meshPhongMaterial>
+            <meshPhongMaterial attach="material" color="white"></meshPhongMaterial>
         </mesh>
     )
 }

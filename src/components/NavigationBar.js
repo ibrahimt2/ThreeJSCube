@@ -12,9 +12,9 @@ import Navbar from 'react-bootstrap/Navbar';
 function NavigationBar() {
     return (
         <>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="info" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">The Cube Command Centre</Navbar.Brand>
+                    <Navbar.Brand href="#home"><b>The Cube Command Centre</b></Navbar.Brand>
                     <Nav className="me-auto">
        
                     </Nav>
