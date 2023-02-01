@@ -31,7 +31,7 @@ function CommandPane({ cubeMachineState, send }) {
                         <Tooltip id={`tooltip-${'right'}`}>
                             Use this pane to send instructions to the cube. 
                             <br></br><br></br>
-                            <b>Sending Single Command: </b> Enter command in text fields and click 'Quick Execute'
+                            <b>Sending Single Command: </b> Enter command in text fields and click 'Quick Execute'. Note clicking Quick execute will empty the command list without executing commands.
                             <br></br><br></br>
                             <b>Execute command list: </b> Fill command list by entering commands in text fields and click '+'. Repeat until list is built. Then, click 'Execute List Instructions' 
                             <br></br><br></br>
