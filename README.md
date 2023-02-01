@@ -11,6 +11,7 @@ git clone https://github.com/ibrahimt2/ThreeJSCube.git
 npm i
 npm start 
 ```
+Then, visit the local host URL that is provided in your command line terminal. Most likely, this will be localhost:3000
 
 ## Running tests  
 Once project is set up, go to the root directory in the terminal and type
@@ -19,8 +20,6 @@ npm test
 # Once this has finished running press
 a
 ```
-
-Then, visit the local host URL that is provided in your command line terminal. Most likely, this will be localhost:3000
 
 ## Scene description
 
@@ -88,7 +87,9 @@ Final position = [2,2,2]
 Adds a command based on the current text inputs to the commands queue. 
 
 ### QUICK EXECUTE
-Executes a command based on the current text inputs. Also clears the current command queue without executing the commands in the queue. Useful if you want to quickly execute identical commands whilst looking at the intermediate results
+Executes a command based on the current text inputs. 
+
+Also clears the current command queue without executing the commands in the queue. Useful if you want to quickly execute identical commands whilst looking at the intermediate results
 
 ### EXECUTE INSTRUCTION LIST
 Execute the commands current in the commands queue. Commands are executed in a First in, First out manner.
