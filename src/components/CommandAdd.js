@@ -29,6 +29,7 @@ function CommandAdd({ cubeMachineState, send }) {
                         <Form.Select aria-label="Select Command" onChange={(e) => {
                             send("Form input changed", { value: e.target.value, valueType: 'name' });
                         }}>
+                            <option value="" selected disabled hidden>Select a command</option>
                             <option value="MOVE TO">MOVE TO</option>
                             <option value="MOVE BY">MOVE BY</option>
                             <option value="ROTATE TO">ROTATE TO</option>
