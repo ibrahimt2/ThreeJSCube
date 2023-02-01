@@ -3,7 +3,7 @@
 Live at: https://thecubecommand.netlify.app/
 
 ## Set up instructions 
-
+In the command line of a folder, enter the following commands one by one
 ```
 git clone https://github.com/ibrahimt2/ThreeJSCube.git
 npm i
@@ -23,30 +23,38 @@ There are 3 lights (red, blue and green) pointed at the intitial position of the
 ### MOVE TO
 Description: Sets the cube's position to the given coordinates. 
 #### Example
+```
 Initial position = [0,0,0]
 MOVE TO [5,5,5]
 Final position = [5,5,5]
+```
 
 
 ### MOVE BY 
 Description: Changes the cube's position by the given values
 #### Example
+```
 Initial position = [0,0,0]
 MOVE BY [1,1,1]
 MOVE BY [1,1,1]
 Final position = [2,2,2]
+```
 
 ### ROTATE TO 
 Description: Sets the cube's rotation to the given values (in degrees).
 #### Example
+```
 Initial rotation = [0,0,0]
 ROTATE TO [30,30,30]
 Final rotation = [30,30,30]
+```
 
 ### ROTATE BY
 Description: Changes the cube's rotation by the given values (in degrees).
 #### Example
+```
 Initial rotation = [0,0,0]
 ROTATE BY [30,30,30]
 ROTATE BY [30,30,30]
 Final rotation = [60,60,60]
+```
