@@ -1,5 +1,7 @@
 # The Cube Command Center
 
+## Visit Live example without set up
+
 Live at: https://thecubecommand.netlify.app/
 
 ## Set up instructions 
@@ -8,6 +10,14 @@ In the command line of a folder, enter the following commands one by one.
 git clone https://github.com/ibrahimt2/ThreeJSCube.git
 npm i
 npm start 
+```
+
+## Running tests  
+Once project is set up, go to the root directory in the terminal and type
+```
+npm test 
+# Once this has finished running press
+a
 ```
 
 Then, visit the local host URL that is provided in your command line terminal. Most likely, this will be localhost:3000
