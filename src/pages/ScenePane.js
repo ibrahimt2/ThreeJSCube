@@ -1,6 +1,6 @@
 import RenderedCube from "../components/RenderedCube.js"
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars, Line } from '@react-three/drei'
+import { OrbitControls, Stars, Line, Sky, Sparkles } from '@react-three/drei'
 import Container from "react-bootstrap/esm/Container.js"
 import './ScenePane.css'
 import Col from "react-bootstrap/Col"
@@ -22,14 +22,20 @@ function ScenePane({ position, rotation }) {
     return (
         <div className='shadow p-3 m-5 mx-5 bg-white rounded'>
             <h1>Cube Viewer</h1>
-            <Container className="scene-container mt-4 shadow">
+            <Container className="scene-container mt-4 ">
                 <Canvas>
+                    
                    <Line points={[[-1000, 0, 0], [1000, 0, 0]]} color='red' lineWidth={1} ></Line>
                    <Line points={[[0, -1000, 0], [0, 1000, 0]]} color='blue' lineWidth={1} ></Line>
                    <Line points={[[0, 0, -1000], [0, 0, 1000]]} color='green' lineWidth={1} ></Line>
                     <ambientLight intensity={0.1} />
-                    <spotLight position={[9, 16, 10]} />
-                    <Stars></Stars>
+                    <Sky distance={450000} sunPosition={[0, 1, 0]} inclination={0} azimuth={0.25}/>
+                    <spotLight position={[-3, 9, 12]} color={'red'} />
+                    <spotLight position={[6, -2, 9]} color={'blue'} />
+                    <spotLight position={[5, 15, -4]} color={'blue'} />
+
+
+                    <Stars saturation={100}></Stars>
                     <OrbitControls></OrbitControls>
                     <RenderedCube position={position} rotation={rotation}></RenderedCube>
                 </Canvas>
