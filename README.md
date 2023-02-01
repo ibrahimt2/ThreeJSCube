@@ -3,7 +3,7 @@
 Live at: https://thecubecommand.netlify.app/
 
 ## Set up instructions 
-In the command line of a folder, enter the following commands one by one
+In the command line of a folder, enter the following commands one by one.
 ```
 git clone https://github.com/ibrahimt2/ThreeJSCube.git
 npm i
@@ -57,4 +57,18 @@ Initial rotation = [0,0,0]
 ROTATE BY [30,30,30]
 ROTATE BY [30,30,30]
 Final rotation = [60,60,60]
+```
+
+### ROTATE TO and MOVE TO overwrite previous changes
+Description: Since MOVE TO and ROTATE TO directly set the cube's position and rotation, they overwrite the effect of any previous commands in a sequence
+```
+Initial rotation = [0,0,0]
+Initial position = [0,0,0]
+ROTATE BY [30,30,30]
+ROTATE BY [30,30,30]
+MOVE BY [10,10,10]
+MOVE TO [1,1,1]
+ROTATE TO [2,2,2]
+Final rotation = [1,1,1]
+Final position = [2,2,2]
 ```
