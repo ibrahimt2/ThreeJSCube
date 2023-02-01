@@ -67,7 +67,7 @@ const cubeMachine =
         let rotationResult = context.rotation
         let commandArray = context.commands
       
-        while (commandArray.length != 0) {
+        while (commandArray.length !== 0) {
             let command = commandArray.shift()
       
             if (command.name === 'MOVE TO') {
