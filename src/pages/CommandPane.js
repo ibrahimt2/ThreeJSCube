@@ -29,13 +29,17 @@ function CommandPane({ cubeMachineState, send }) {
                     placement={'right'}
                     overlay={
                         <Tooltip id={`tooltip-${'right'}`}>
-                            Use this pane to send instructions to the cube. First, use the + button to add commands to the command list. Then, press the 'Process Instructions' command to execute the commands. They will be executed in the sequence they were entered.
+                            Use this pane to send instructions to the cube. 
                             <br></br><br></br>
-                            <b>MOVE TO: </b>Move the cube to the given co-ordinates
+                            <b>Sending Single Command: </b> Enter command in text fields and click 'Quick Execute'
+                            <br></br><br></br>
+                            <b>Execute command list: </b> Fill command list by entering commands in text fields and click '+'. Repeat until list is built. Then, click 'Execute List Instructions' 
+                            <br></br><br></br>
+                            <b>MOVE TO: </b>Move the cube to the given coordinates. Overwrites previous effects
                             <br></br><br></br>
                             <b>MOVE BY: </b>Change the cube's position by the given amount
                             <br></br><br></br>
-                            <b>ROTATE TO: </b>Set the cube's rotation to the given numbers, specified in degrees
+                            <b>ROTATE TO: </b>Set the cube's rotation to the given numbers, specified in degrees. Overwrites previous effects
                             <br></br><br></br>
                             <b>ROTATE BY: </b>Change the cube's rotation by the given amount, specified in degrees
                         </Tooltip>
@@ -51,13 +55,13 @@ function CommandPane({ cubeMachineState, send }) {
                 <Col> <Button className='w-100 text-light' variant="info"
                     onClick={(e) => {
                         send("Process list commands")
-                    }}><small>PROCESS INSTRUCTIONS</small></Button></Col>
+                    }}><small>EXECUTE INSTRUCTION LIST</small></Button></Col>
                 <Col>
                     <Button variant="info"
                         className='w-100 text-light'
                         onClick={(e) => {
                             send("Clear command list")
-                        }}><small>CLEAR</small> </Button>
+                        }}><small>CLEAR INSTRUCTION LIST</small> </Button>
                 </Col>
             </Row>
 
