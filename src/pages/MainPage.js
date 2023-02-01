@@ -17,42 +17,7 @@ import { useMachine } from '@xstate/react'
 
 function MainPage() {
 
-<<<<<<< HEAD
     const [cubeMachineState, send] = useMachine(cubeMachine)
-=======
-    const [cubeMachineState, send] = useMachine(cubeMachine, {
-        services: {
-
-            /** Service to process commands currently in commandArray and return calculated position and rotation values */
-            processCommands: async (context) => {
-
-                let positionResult = context.position
-                let rotationResult = context.rotation
-                let commandArray = context.commands
-
-                while (commandArray.length != 0) {
-                    let command = commandArray.shift()
-
-                    if (command.name == 'MOVE TO') {
-                        // Move the cube to a given position
-                        positionResult = [command.x, command.y, command.z]
-                    } else if (command.name == 'ROTATE TO') {
-                        // Rotate the cube to a given position
-                        rotationResult = [command.x, command.y, command.z]
-                    } else if (command.name == 'MOVE BY') {
-                        // Add command position values to cube's current position
-                        positionResult = [positionResult[0] + command.x, positionResult[1] + command.y, positionResult[2] + command.z]
-                    } else if (command.name == 'ROTATE BY') {
-                        // Add command rotation values to cube's rotation position
-                        rotationResult = [rotationResult[0] + command.x, rotationResult[1] + command.y, rotationResult[2] + command.z]
-                    }
-                }
-
-                return [positionResult, rotationResult]
-            }
-        }
-    })
->>>>>>> f38eb575b9d8f71b14577c466e1214a9048ef5cf
 
     return (
         <div>
