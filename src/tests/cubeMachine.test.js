@@ -166,4 +166,22 @@ describe('cubeMachine', () => {
     
         expect(service.state.context.rotation).toEqual([1, 1, 1]);
     });
+
+    it('"Clear command list" event empties commands array without executing commands', async() => {
+
+        service.send("Form input changed", { value: 'MOVE BY', valueType: 'name'})
+        service.send("Form input changed", { value: '50', valueType: 'x' })
+        service.send("Form input changed", { value: '20', valueType: 'y' })
+        service.send("Form input changed", { value: '10', valueType: 'z' })
+        service.send('Add Command');
+        service.send('Clear command list')
+
+
+    
+        expect(service.state.context.rotation).toEqual([0, 0, 0]);
+        expect(service.state.context.position).toEqual([0, 0, 0]);
+        expect(service.state.context.commands).toEqual([]);
+
+
+    });
 })
