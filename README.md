@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# The Cube Command Center
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Visit Live example without set up
 
-## Available Scripts
+Live at: https://thecubecommand.netlify.app/
 
-In the project directory, you can run:
+## Set up instructions 
+In the command line of a folder, enter the following commands one by one.
+```
+git clone https://github.com/ibrahimt2/ThreeJSCube.git
+npm i
+npm start 
+```
+Then, visit the local host URL that is provided in your command line terminal. Most likely, this will be localhost:3000
 
-### `npm start`
+## Running tests  
+Once project is set up, go to the root directory in the terminal and type
+```
+npm test 
+# Once this has finished running press
+a
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Scene description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The scene consists of a white cube and 3 colored lines. The colored lines represent the x, y, and z axis. 
 
-### `npm test`
+There are 3 lights (red, blue and green) pointed at the intitial position of the cube. This makes each face of the cube a different color, helping to distinguish each face of the cube. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Command Description
 
-### `npm run build`
+### MOVE TO
+**Description:** Sets the cube's position to the given coordinates. 
+#### Example
+```
+Initial position = [0,0,0]
+MOVE TO [5,5,5]
+Final position = [5,5,5]
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### MOVE BY 
+**Description:** Changes the cube's position by the given values
+#### Example
+```
+Initial position = [0,0,0]
+MOVE BY [1,1,1]
+MOVE BY [1,1,1]
+Final position = [2,2,2]
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ROTATE TO 
+**Description:** Sets the cube's rotation to the given values (in degrees).
+#### Example
+```
+Initial rotation = [0,0,0]
+ROTATE TO [30,30,30]
+Final rotation = [30,30,30]
+```
 
-### `npm run eject`
+### ROTATE BY
+**Description:** Changes the cube's rotation by the given values (in degrees).
+#### Example
+```
+Initial rotation = [0,0,0]
+ROTATE BY [30,30,30]
+ROTATE BY [30,30,30]
+Final rotation = [60,60,60]
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ROTATE TO and MOVE TO overwrite previous changes
+**Description:** Since MOVE TO and ROTATE TO directly set the cube's position and rotation, they overwrite the effect of any previous commands in a sequence
+```
+Initial rotation = [0,0,0]
+Initial position = [0,0,0]
+ROTATE BY [30,30,30]
+ROTATE BY [30,30,30]
+MOVE BY [10,10,10]
+MOVE TO [2,2,2]
+ROTATE TO [1,1,1]
+Final rotation = [1,1,1]
+Final position = [2,2,2]
+```
+## Button Descriptions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### ADD COMMAND
+Adds a command based on the current text inputs to the commands queue. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### QUICK EXECUTE
+Executes a command based on the current text inputs. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Also clears the current command queue without executing the commands in the queue. Useful if you want to quickly execute identical commands whilst looking at the intermediate results
 
-## Learn More
+### EXECUTE INSTRUCTION LIST
+Execute the commands current in the commands queue. Commands are executed in a First in, First out manner.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### CLEAR INSTRUCTION LIST
+Clears the current command queue without executing the commands in the queue
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## React Architecture
+![React architecture](./readMeImages/architecture_diagram.png)
 
-### Code Splitting
+## State Machine Diagram
+![React architecture](./readMeImages/cube_state_machine.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
