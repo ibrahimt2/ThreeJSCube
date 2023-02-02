@@ -23,12 +23,13 @@ function CommandPane({ cubeMachineState, send }) {
         <div className='shadow p-3 m-2 mx-5 bg-white rounded'>
             <Row>
 
-                {/* Displays heading and tooltip */}
+                {/* Displays heading */}
                 <Col><h1>Command Manager<OverlayTrigger
                     key={'right'}
                     placement={'right'}
                     overlay={
                         <Tooltip id={`tooltip-${'right'}`}>
+                            {/* Tooltip text */}
                             Use this pane to send instructions to the cube. 
                             <br></br><br></br>
                             <b>Sending Single Command: </b> Enter command in text fields and click 'Quick Execute'. Note clicking Quick execute will empty the command list without executing commands.
