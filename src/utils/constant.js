@@ -1,1 +1,0 @@
-export const availableCommands = ['MOVE TO', 'MOVE BY', 'ROTATE TO', 'ROTATE BY'];
