@@ -1,6 +1,6 @@
 # The Cube Command Center
 
-## Extra libraries
+## Extra libraries used 
 - [DREI](https://github.com/pmndrs/drei) for useful helpers and fully functional helpers.
 - [Jest](https://jestjs.io) for writing tests.
 - [React Bootstrap](https://react-bootstrap.github.io) for CSS styling
