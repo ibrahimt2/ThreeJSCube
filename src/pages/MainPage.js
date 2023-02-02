@@ -1,4 +1,3 @@
-import NavigationBar from '../components/NavigationBar';
 import ScenePane from '../pages/ScenePane.js'
 import CommandPane from './CommandPane.js'
 import cubeMachine from '../machines/cubeMachine.js'
