@@ -97,6 +97,6 @@ Execute the commands current in the commands queue. Commands are executed in a F
 ### CLEAR INSTRUCTION LIST
 Clears the current command queue without executing the commands in the queue
 
-
-
+## React Architecture
+![React architecture](./readMeImages/architecture_diagram.png)
 
