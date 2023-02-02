@@ -11,7 +11,7 @@ import Navbar from 'react-bootstrap/Navbar';
 /** MainPage.
  *  Display Main Landing Page of application.
  * 
- *  Renders: NavigationBar, ScenePane, CommandPane 
+ *  Renders: ScenePane, CommandPane 
  *  Rendered By: App.js
  */
 
