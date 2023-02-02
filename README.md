@@ -13,6 +13,8 @@ Live at: https://thecubecommand.netlify.app/
 In the command line of a folder, enter the following commands one by one.
 ```
 git clone https://github.com/ibrahimt2/ThreeJSCube.git
+# Navigate to the newly created folder with source code
+cd ThreeJSCube 
 npm i
 npm start 
 ```
