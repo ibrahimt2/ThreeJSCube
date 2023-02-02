@@ -100,3 +100,6 @@ Clears the current command queue without executing the commands in the queue
 ## React Architecture
 ![React architecture](./readMeImages/architecture_diagram.png)
 
+## State Machine Diagram
+![React architecture](./readMeImages/cube_state_machine.png)
+
